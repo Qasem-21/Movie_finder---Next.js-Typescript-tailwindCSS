@@ -15,6 +15,7 @@ export async function searchMovies(query: string): Promise<Show[]> {
 }
 
 export async function getMovie(id: string): Promise<Show> {
+  console.log(`Fetching movie with ID: ${id}`);
   const res = await fetch(`${SHOW_URL}/${id}`);
   
   if (!res.ok) {

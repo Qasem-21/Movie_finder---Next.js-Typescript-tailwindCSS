@@ -1,3 +1,5 @@
+"use client";
+import DarkModeToggle from "@/components/DarkModeToggle";
 import Loader from "@/components/Loader";
 import MovieList from "@/components/MovieList";
 import SearchBar from "@/components/SearchBar";
@@ -19,6 +21,7 @@ export default function Home() {
 
   return (
     <main className="p-4">
+      <DarkModeToggle/>
       <SearchBar onSearch={handleSearch} />
       {loading ? <Loader /> : <MovieList movies={movies} />}
     </main>

@@ -5,7 +5,19 @@ export default async function MoviePage({
 }: {
   params: { id: string };
 }) {
-  const movie = await getMovie(params.id);
+  const { id } =await params;
+
+
+
+  if (!id) {
+    return <p>Invalid movie ID</p>;
+  }
+
+  const movie = await getMovie(id);
+
+  if (!movie) {
+    return <p>Movie not found</p>;
+  }
 
   return (
     <div className="p-4">
@@ -13,7 +25,11 @@ export default async function MoviePage({
 
       {movie.image && <img src={movie.image.medium} />}
 
-      <p dangerouslySetInnerHTML={{ __html: movie.summary || "no description available" }} />
+      {movie.summary && (
+        <div
+          dangerouslySetInnerHTML={{ __html: movie.summary }}
+        />
+      )}
 
       <p>Genres: {movie.genres.join(", ")}</p>
       <p>Rating: {movie.rating?.average}</p>

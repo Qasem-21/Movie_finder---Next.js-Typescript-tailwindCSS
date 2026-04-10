@@ -6,14 +6,11 @@ A modern and elegant web app built with **Next.js + TypeScript + Tailwind CSS** 
 
 ## 🚀 Features
 
-- 🔍 Search movies and TV shows by title, genre, or actor
-- 🎨 Dark/Light mode toggle with persistent preference
+- 🔍 Search movies
 - 📱 Fully responsive design (mobile, tablet, desktop)
 - 🎯 Detailed movie information (rating, genres, release date, synopsis)
 - 💾 Search persistence when navigating back
 - ⚡ Smooth animations and micro-interactions
-- 🖼️ Lazy loading images for optimal performance
-- 📊 Real-time search with Enter key support
 
 ---
 
@@ -69,7 +66,7 @@ http://localhost:3000
 
 ## 🌍 Live Demo
 
-👉 https://github-user-finder-next-js-typescri.vercel.app/
+👉 https://movie-finder-next-js-typescript-tai.vercel.app/
 
 
 

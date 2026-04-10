@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #eff6ff;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  
+  --animate-fade-in: fadeIn 0.5s ease-out;
+  --animate-slide-up: slideUp 0.4s ease-out;
+  --animate-spin-slow: spin 1s linear infinite;
+  --animate-pulse-slow: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer base {
+  body {
+    background: linear-gradient(to bottom right, var(--color-gray-50), var(--color-gray-100));
+    color: var(--color-gray-900);
+    transition-property: color, background-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+  
+  .dark body {
+    background: linear-gradient(to bottom right, var(--color-gray-950), var(--color-gray-900));
+    color: var(--color-gray-100);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--color-gray-200);
+  }
+  
+  .dark .glass-card {
+    background-color: rgba(31, 41, 55, 0.8);
+    border-color: var(--color-gray-700);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(to right, var(--color-blue-600), var(--color-purple-600));
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--color-gray-100);
+  }
+  
+  .dark ::-webkit-scrollbar-track {
+    background: var(--color-gray-900);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gray-400);
+    border-radius: 9999px;
+  }
+  
+  .dark ::-webkit-scrollbar-thumb {
+    background: var(--color-gray-600);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gray-500);
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gray-500);
+  }
+}
